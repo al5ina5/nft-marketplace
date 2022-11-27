@@ -203,7 +203,7 @@ export default function TokenPage({ contract, id, data: initialData }) {
                         <PaintswapWidget contractAddress={data.contractAddress} tokenId={data.tokenId} />
 
 
-                        {data.metadata.attributes && (
+                        {data.metadata.attributes && Array.isArray(data.metadata.attributes) && (
                             <div className="flex gap-2 flex-wrap">
                                 {data.metadata.attributes.map((attribute) => {
                                     const attributeData = attributes && attributes.find(search => search.value === attribute.value)
