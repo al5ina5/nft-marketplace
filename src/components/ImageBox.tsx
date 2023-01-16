@@ -26,10 +26,10 @@ export default function ImageBox({ nft }) {
                                 <span>😕 Loading Error</span>
                             </span>
                             <span className='text-xs'>This file may be an unknown format or an incompatible contract. Consult support.</span>
-                            <a onClick={e => e.stopPropagation()} className='underline hover:no-underline opacity-75 hover:opacity-100' target={"_blank"} href={nft.tokenUri}>View Metadata</a>
+                            <a onClick={e => e.stopPropagation()} className='underline hover:no-underline opacity-75 hover:opacity-100' target={"_blank"} href={nft?.tokenUri}>View Metadata</a>
                         </p>}
 
-                        <img loading="lazy" onLoad={() => setLoaded(true)} onError={() => setError(true)} className={classNames('max-h-full min-w-full object-contain', error && 'hidden')} src={imageUrl(nft.metadata.image)} />
+                        <img loading="lazy" onLoad={() => setLoaded(true)} onError={() => setError(true)} className={classNames('max-h-full min-w-full object-contain', error && 'hidden')} src={imageUrl(nft?.metadata?.image)} />
                     </a>
                 </Link>
             </>

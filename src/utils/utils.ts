@@ -4,8 +4,8 @@ import shortNumber from 'short-number'
 import axios from 'axios'
 import { mutate } from 'swr'
 
-export const apiUrl = 'https://api.fantom.digital'
-// export const apiUrl = process.env.NODE_ENV === 'production' ? 'https://api.fantom.digital' : 'http://localhost:8888'
+// export const apiUrl = 'https://api.fantom.digital'
+export const apiUrl = process.env.NODE_ENV === 'production' ? 'https://api.fantom.digital' : 'http://localhost:8888'
 export const api = axios.create({ baseURL: apiUrl })
 
 export const imageCacheUrl = 'https://enbzwejmbbmiirvimcib.supabase.in/storage/v1/object/public/cache'
