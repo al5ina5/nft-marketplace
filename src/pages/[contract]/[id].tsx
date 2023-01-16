@@ -223,7 +223,7 @@ export default function TokenPage({ contract, id, data: initialData }) {
                             </div>
                         )}
 
-                        <History contractAddress={data.contractAddress} tokenId={data.tokenId} />
+                        {/* <History contractAddress={data.contractAddress} tokenId={data.tokenId} /> */}
                     </div>
                 </div>
             </div>
