@@ -55,14 +55,18 @@ export default function History({ contractAddress, tokenId }) {
     const contract = new web3.eth.Contract(erc721 as any, contractAddress)
 
     const [events, setEvents] = useState<any[]>([])
+    const [fromBlock, setFromBlock] = useState(0);
 
     useEffect(() => {
         const onLoad = async () => {
+            const blockNumber = await web3.eth.getBlockNumber()
+            setFromBlock(blockNumber)
+
             await contract.getPastEvents(
                 'Transfer',
                 {
                     filter: { tokenId },
-                    fromBlock: 0,
+                    fromBlock: blockNumber - 2000,
                     toBlock: 'latest'
                 },
                 async (error, results) => {
@@ -77,7 +81,7 @@ export default function History({ contractAddress, tokenId }) {
 
     return (
         <div className="space-y-2">
-            {(!events || events.length <= 0) && (
+            {(!events) && (
                 <div className="bg-zinc-400 text-zinc-900 p-4  text-center">
                     <p>
                         <ReactTyped strings={['Loading history...']} loop />

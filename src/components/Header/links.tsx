@@ -15,11 +15,6 @@ const links = [
         title: 'Collections'
     },
     {
-        slug: 'create',
-        href: '/create',
-        title: 'Create'
-    },
-    {
         slug: 'stats',
         href: '/stats',
         title: 'Stats'
